@@ -1,12 +1,20 @@
+import java.util.HashSet;
+import java.util.Set;
+
 public class Permission {
+    private int id;
     private String name;
     private BusinessObject businessObject;
-    private Action action;
+    private Set<Action> actions = new HashSet<Action>();
 
-    public Permission(String name, BusinessObject businessObject, Action action) {
+    public Permission(int id, String name, BusinessObject businessObject) {
+        this.id = id;
         this.name = name;
         this.businessObject = businessObject;
-        this.action = action;
+    }
+
+    public int getId(){
+        return id;
     }
 
     public String getName() {
@@ -17,19 +25,11 @@ public class Permission {
         return businessObject;
     }
 
-    public Action getAction() {
-        return action;
+    public Set<Action> getActions() {
+        return actions;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setBusinessObject(BusinessObject businessObject) {
-        this.businessObject = businessObject;
-    }
-
-    public void setAction(Action action) {
-        this.action = action;
+    public void addAction(Action action) {
+        actions.add(action);
     }
 }

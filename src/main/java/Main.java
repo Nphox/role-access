@@ -12,7 +12,9 @@ public class Main {
         BusinessObject Beta = new BusinessObject("Beta");
         BusinessObject Gamma = new BusinessObject("Gamma");
 
-        Permission observeVehiclesOnMaintenancePermission = new Permission("Observe vehicles on maintenence", Alpha, observe);
+        Permission observeVehiclesOnMaintenancePermission = new Permission(1, "Observe vehicles on maintenence", Alpha);
+        observeVehiclesOnMaintenancePermission.addAction(observe);
+        observeVehiclesOnMaintenancePermission.addAction(add);
 
         Role maintenanceManager = new Role("Maintenance Manager");
         maintenanceManager.addPermission(observeVehiclesOnMaintenancePermission);
